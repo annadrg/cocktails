@@ -1,0 +1,23 @@
+.navBar {
+  display: flex;
+  background-color: white;
+  align-items: center;
+
+  h2 {
+    color: #0b3948;
+    font-family: "Bungee Shade";
+    margin-left: 15px;
+  }
+
+  .inactive {
+    text-align: center;
+    text-decoration: none;
+    color: #416165;
+    font-weight: 100;
+    font-family: "Staatliches";
+  }
+}
+
+.navBarLink {
+  margin-left: 20px;
+}
