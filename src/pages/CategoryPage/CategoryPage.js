@@ -23,8 +23,6 @@ export default function CategoryPage() {
     fetchData();
   }, [currentCategory]);
 
-  console.log(categoryDrinks);
-
   const listOfDrinks = categoryDrinks?.map((drink, index) => {
     return (
       <DrinkIngredientCard

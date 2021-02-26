@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./CocktailPage/CocktailPage.scss";
+import { useParams } from "react-router-dom";
+import "./CocktailPage.scss";
 
-export default function RandomCocktail() {
+export default function CocktailPage() {
+  const route_parameters = useParams();
+  const currentCocktail = route_parameters.cocktail;
+
   const [cocktailDetails, setCocktailDetails] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+        .get(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${currentCocktail}`
+        )
         .then((response) => {
           setCocktailDetails(response.data.drinks[0]);
         });
     };
     fetchData();
-  }, []);
+  }, [currentCocktail]);
 
   const getIngredients = () => {
     const totalIngredients = [];
