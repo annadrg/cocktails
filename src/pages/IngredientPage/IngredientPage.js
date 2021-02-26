@@ -2,28 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import DrinkCard from "../../components/DrinkCard/DrinkCard";
-import "./CategoryPage.scss";
+import "./IngredientPage.scss";
 
-export default function CategoryPage() {
+export default function IngredientPage() {
   const route_parameters = useParams();
-  const currentCategory = route_parameters.category;
+  const currentIngredient = route_parameters.ingredient;
 
-  const [categoryDrinks, setCategoryDrinks] = useState([]);
+  const [ingredientDrinks, setIngredientDrinks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       await axios
         .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${currentCategory}`
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${currentIngredient}`
         )
         .then((response) => {
-          setCategoryDrinks(response.data.drinks);
+          setIngredientDrinks(response.data.drinks);
         });
     };
     fetchData();
-  }, [currentCategory]);
+  }, [currentIngredient]);
 
-  const listOfDrinks = categoryDrinks?.map((drink, index) => {
+  const listOfDrinks = ingredientDrinks?.map((drink, index) => {
     return (
       <DrinkCard key={index} name={drink.strDrink} img={drink.strDrinkThumb} />
     );
