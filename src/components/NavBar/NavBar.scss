@@ -1,6 +1,9 @@
-.navBar {
+.navbar {
+  padding: 0;
+}
+
+nav {
   display: flex;
-  background-color: white;
   align-items: center;
 
   h2 {
@@ -9,7 +12,7 @@
     margin-left: 15px;
   }
 
-  .inactive {
+  .navItem {
     text-align: center;
     text-decoration: none;
     color: #416165;
@@ -19,6 +22,22 @@
 
   .active {
     color: #fd94c9;
+    text-align: center;
+  }
+
+  .searchButton {
+    background-color: #fd94c9;
+    border-color: #fd94c9;
+  }
+
+  .searchButton:hover {
+    background-color: #416165;
+    border-color: #416165;
+  }
+
+  .searchButton:focus {
+    background-color: #416165;
+    border-color: #416165;
   }
 }
 
