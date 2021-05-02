@@ -23,9 +23,13 @@ export default function RandomCocktail() {
       const measureNumber = `strMeasure${i}`;
 
       if (cocktailDetails[ingredientNumber]) {
-        totalIngredients.push(
-          `${cocktailDetails[measureNumber]} ${cocktailDetails[ingredientNumber]}`
-        );
+        if (cocktailDetails[measureNumber]) {
+          totalIngredients.push(
+            `${cocktailDetails[measureNumber]} ${cocktailDetails[ingredientNumber]}`
+          );
+        } else {
+          totalIngredients.push(`${cocktailDetails[ingredientNumber]}`);
+        }
       }
     }
     return totalIngredients;
