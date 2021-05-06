@@ -14,25 +14,21 @@ export default function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link>
-            <NavLink to="/" exact className="navItem">
-              Categories
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link>
-            <NavLink
-              to="/ingredients"
-              className="navItem"
-              activeClassName="active"
-            >
-              Ingredients
-            </NavLink>
-          </Nav.Link>
-          <Nav.Link>
-            <NavLink to="/random" className="navItem">
-              Random
-            </NavLink>
-          </Nav.Link>
+          <NavLink to="/" exact className="navItem">
+            Categories
+          </NavLink>
+
+          <NavLink
+            to="/ingredients"
+            className="navItem"
+            activeClassName="active"
+          >
+            Ingredients
+          </NavLink>
+
+          <NavLink to="/random" className="navItem">
+            Random
+          </NavLink>
         </Nav>
         <Form inline>
           <FormControl

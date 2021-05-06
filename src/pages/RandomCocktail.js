@@ -51,8 +51,8 @@ export default function RandomCocktail() {
           <div className="ingredients">
             <h6>Ingredients</h6>
             <ul>
-              {ingredients.map((ing) => {
-                return <li>{ing}</li>;
+              {ingredients.map((ing, index) => {
+                return <li key={index}>{ing}</li>;
               })}
             </ul>
           </div>

@@ -17,8 +17,6 @@ export default function CocktailCategories() {
     fetchData();
   }, []);
 
-  console.log(categories);
-
   const categoriesFiltered = categories.filter((cat) => {
     return cat.strCategory !== "";
   });
