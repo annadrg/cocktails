@@ -7,6 +7,7 @@ import CocktailIngredients from "./pages/CocktailIngredients/CocktailIngredients
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import NavBar from "./components/NavBar/NavBar";
 import IngredientPage from "./pages/IngredientPage/IngredientPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/category/:category" component={CategoryPage} />
         <Route path="/cocktail/:cocktail" component={CocktailPage} />
         <Route path="/ingredient/:ingredient" component={IngredientPage} />
+        <Route path="/search/:searchTerm" component={SearchPage} />
         <Route path="/random" component={RandomCocktail} />
         <Route path="/ingredients" component={CocktailIngredients} />
         <Route path="/" component={CocktailCategories} />
