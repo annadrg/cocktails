@@ -8,11 +8,10 @@ export default function CocktailIngredients() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`)
-        .then((response) => {
-          setIngredients(response.data.drinks);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`
+      );
+      setIngredients(response.data.drinks);
     };
     fetchData();
   }, []);

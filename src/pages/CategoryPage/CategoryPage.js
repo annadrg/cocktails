@@ -12,13 +12,10 @@ export default function CategoryPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${currentCategory}`
-        )
-        .then((response) => {
-          setCategoryDrinks(response.data.drinks);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${currentCategory}`
+      );
+      setCategoryDrinks(response.data.drinks);
     };
     fetchData();
   }, [currentCategory]);

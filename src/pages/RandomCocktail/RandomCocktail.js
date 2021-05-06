@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./CocktailPage/CocktailPage.scss";
+import "./RandomCocktail.scss";
+import { Button } from "react-bootstrap";
 
 export default function RandomCocktail() {
   const [cocktailDetails, setCocktailDetails] = useState({});
+  const [newCocktail, setNewCocktail] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
-        .then((response) => {
-          setCocktailDetails(response.data.drinks[0]);
-        });
+      if (newCocktail) {
+        const response = await axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+        );
+        setCocktailDetails(response.data.drinks[0]);
+        setNewCocktail(false);
+      }
     };
     fetchData();
-  }, []);
+  }, [newCocktail]);
 
   const getIngredients = () => {
     const totalIngredients = [];
@@ -65,5 +69,12 @@ export default function RandomCocktail() {
     </div>
   );
 
-  return <div className="cocktail">{cocktailInfo}</div>;
+  return (
+    <div>
+      <div className="cocktail">{cocktailInfo}</div>
+      <Button className="randomButton" onClick={() => setNewCocktail(true)}>
+        New random cocktail
+      </Button>
+    </div>
+  );
 }

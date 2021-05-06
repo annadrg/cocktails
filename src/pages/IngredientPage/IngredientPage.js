@@ -12,13 +12,10 @@ export default function IngredientPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${currentIngredient}`
-        )
-        .then((response) => {
-          setIngredientDrinks(response.data.drinks);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${currentIngredient}`
+      );
+      setIngredientDrinks(response.data.drinks);
     };
     fetchData();
   }, [currentIngredient]);

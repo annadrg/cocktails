@@ -11,13 +11,10 @@ export default function CocktailPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${currentCocktail}`
-        )
-        .then((response) => {
-          setCocktailDetails(response.data.drinks[0]);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${currentCocktail}`
+      );
+      setCocktailDetails(response.data.drinks[0]);
     };
     fetchData();
   }, [currentCocktail]);

@@ -12,13 +12,10 @@ export default function SearchPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${currentSearchTerm}`
-        )
-        .then((response) => {
-          setSearchDrinks(response.data.drinks);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${currentSearchTerm}`
+      );
+      setSearchDrinks(response.data.drinks);
     };
     fetchData();
   }, [currentSearchTerm]);

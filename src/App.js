@@ -1,7 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import CocktailPage from "./pages/CocktailPage/CocktailPage";
-import RandomCocktail from "./pages/RandomCocktail";
+import RandomCocktail from "./pages/RandomCocktail/RandomCocktail";
 import CocktailCategories from "./pages/CocktailCategories/CocktailCategories";
 import CocktailIngredients from "./pages/CocktailIngredients/CocktailIngredients";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";

@@ -8,11 +8,10 @@ export default function CocktailCategories() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await axios
-        .get(`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`)
-        .then((response) => {
-          setCategories(response.data.drinks);
-        });
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`
+      );
+      setCategories(response.data.drinks);
     };
     fetchData();
   }, []);
