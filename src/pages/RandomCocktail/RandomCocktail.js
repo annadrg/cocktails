@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 
 export default function RandomCocktail() {
   const [cocktailDetails, setCocktailDetails] = useState({});
-  const [newCocktail, setNewCocktail] = useState(false);
+  const [newCocktail, setNewCocktail] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +46,14 @@ export default function RandomCocktail() {
   const ingredients = getIngredients();
 
   const cocktailInfo = (
-    <div className="cocktailHeader">
-      <h2>{name}</h2>
-      <h5>Category: {category}</h5>
-      <div className="cocktailDetails">
-        <img src={img} alt="cocktail"></img>
-        <div className="details">
+    <div className="row cocktailHeader">
+      <div className="col-12">
+        <h2>{name}</h2>
+        <h5>Category: {category}</h5>
+      </div>
+      <div className="row cocktailDetails">
+        <img className="col-md-4 col-xs-10" src={img} alt="cocktail"></img>
+        <div className="col-md-7 col-xs-12 details">
           <div className="ingredients">
             <h6>Ingredients</h6>
             <ul>
@@ -71,7 +73,7 @@ export default function RandomCocktail() {
 
   return (
     <div>
-      <div className="cocktail">{cocktailInfo}</div>
+      <div className="row cocktail">{cocktailInfo}</div>
       <Button className="randomButton" onClick={() => setNewCocktail(true)}>
         New random cocktail
       </Button>

@@ -45,12 +45,14 @@ export default function CocktailPage() {
   const ingredients = getIngredients();
 
   const cocktailInfo = (
-    <div className="cocktailHeader">
-      <h2>{name}</h2>
-      <h5>Category: {category}</h5>
-      <div className="cocktailDetails">
-        <img src={img} alt="cocktail"></img>
-        <div className="details">
+    <div className="row cocktailHeader">
+      <div className="col-12">
+        <h2>{name}</h2>
+        <h5>Category: {category}</h5>
+      </div>
+      <div className="row cocktailDetails">
+        <img className="col-md-4 col-xs-10" src={img} alt="cocktail"></img>
+        <div className="col-md-7 col-xs-12 details">
           <div className="ingredients">
             <h6>Ingredients</h6>
             <ul>
@@ -68,5 +70,5 @@ export default function CocktailPage() {
     </div>
   );
 
-  return <div className="cocktail">{cocktailInfo}</div>;
+  return <div className="row cocktail">{cocktailInfo}</div>;
 }
